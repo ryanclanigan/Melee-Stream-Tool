@@ -5,6 +5,7 @@ const path = require('path');
 
 const resourcesPath = path.join(process.resourcesPath, 'extraResources');
 const mainPath = path.join(resourcesPath, 'Texts');
+const tempPathForOverlay = "/private/tmp"; 
 const charPath = path.join(resourcesPath, 'Characters');
 
 //yes we all like global variables
@@ -805,22 +806,19 @@ function writeScoreboard() {
     };
 
     let data = JSON.stringify(scoreboardJson, null, 2);
-    fs.writeFileSync(mainPath + "/ScoreboardInfo.json", data);
+    fs.writeFileSync(tempPathForOverlay + "/ScoreboardInfo.json", data);
 
 
     //simple .txt files
-    fs.writeFileSync(mainPath + "/Simple Texts/Player 1.txt", p1NameInp.value);
-    fs.writeFileSync(mainPath + "/Simple Texts/Player 2.txt", p2NameInp.value);
-
-    fs.writeFileSync(mainPath + "/Simple Texts/Round.txt", roundInp.value);
-    fs.writeFileSync(mainPath + "/Simple Texts/Tournament Name.txt", document.getElementById('tournamentName').value);
-
-    fs.writeFileSync(mainPath + "/Simple Texts/Caster 1 Name.txt", document.getElementById('cName1').value);
-    fs.writeFileSync(mainPath + "/Simple Texts/Caster 1 Twitter.txt", document.getElementById('cTwitter1').value);
-    fs.writeFileSync(mainPath + "/Simple Texts/Caster 1 Twitch.txt", document.getElementById('cTwitch1').value);
-
-    fs.writeFileSync(mainPath + "/Simple Texts/Caster 2 Name.txt", document.getElementById('cName2').value);
-    fs.writeFileSync(mainPath + "/Simple Texts/Caster 2 Twitter.txt", document.getElementById('cTwitter2').value);
-    fs.writeFileSync(mainPath + "/Simple Texts/Caster 2 Twitch.txt", document.getElementById('cTwitch2').value);
+    fs.writeFileSync(tempPathForOverlay + "/Simple Texts/Player 1.txt", p1NameInp.value);
+    fs.writeFileSync(tempPathForOverlay + "/Simple Texts/Player 2.txt", p2NameInp.value);
+    fs.writeFileSync(tempPathForOverlay + "/Simple Texts/Round.txt", roundInp.value);
+    fs.writeFileSync(tempPathForOverlay + "/Simple Texts/Tournament Name.txt", document.getElementById('tournamentName').value);
+    fs.writeFileSync(tempPathForOverlay + "/Simple Texts/Caster 1 Name.txt", document.getElementById('cName1').value);
+    fs.writeFileSync(tempPathForOverlay + "/Simple Texts/Caster 1 Twitter.txt", document.getElementById('cTwitter1').value);
+    fs.writeFileSync(tempPathForOverlay + "/Simple Texts/Caster 1 Twitch.txt", document.getElementById('cTwitch1').value);
+    fs.writeFileSync(tempPathForOverlay + "/Simple Texts/Caster 2 Name.txt", document.getElementById('cName2').value);
+    fs.writeFileSync(tempPathForOverlay + "/Simple Texts/Caster 2 Twitter.txt", document.getElementById('cTwitter2').value);
+    fs.writeFileSync(tempPathForOverlay + "/Simple Texts/Caster 2 Twitch.txt", document.getElementById('cTwitch2').value);
 
 }
