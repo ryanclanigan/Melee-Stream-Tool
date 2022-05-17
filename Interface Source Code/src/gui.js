@@ -3,8 +3,9 @@ window.onload = init;
 const fs = require('fs');
 const path = require('path');
 
-const mainPath = path.join(__dirname, '..', '..', 'Stream Tool', 'Resources', 'Texts');
-const charPath = path.join(__dirname, '..', '..', 'Stream Tool', 'Resources', 'Characters');
+const resourcesPath = path.join(process.resourcesPath, 'extraResources');
+const mainPath = path.join(resourcesPath, 'Texts');
+const charPath = path.join(resourcesPath, 'Characters');
 
 //yes we all like global variables
 let charP1 = "Random";
